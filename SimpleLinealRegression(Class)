@@ -1,0 +1,132 @@
+import java.util.Arrays;
+
+public class SimpleLinealRegression {
+    private double[] sales = {};
+    private double[] advertising = {};
+
+    //declarar variables
+    double sumaX = 0;
+    double sumaY = 0;
+    double sumaXY = 0;
+    double sumaX2 = 0;
+    double beta0 = 0;
+    double beta1 = 0;
+    double prediccion = 0;
+    double prediccion1 = 0;
+    double prediccion2 = 0;
+    double prediccion3 = 0;
+    double prediccion4 = 0;
+
+    double[] arreglo = new double[10];
+
+    SimpleLinealRegression(double[] sales, double[] advertising) {//constructor que recibe la llamada los argumentos del objeto de la otra clase (DiscretsMaths)
+        this.sales = sales;
+        this.advertising = advertising; //instanciar los atributos
+    }
+
+    // el showdata es el que muestra solo los datos del data set sin modificar nada
+    public void ShowData() {
+        System.out.println("Datos de Columna X =: " + Arrays.toString(sales)); // funcion que cambia el tipo de dato a string
+        System.out.println("Datos de columna Y = :" + Arrays.toString(advertising));
+        System.out.print("\n");
+
+    }
+
+    public void sumX() {
+        for (int i = 0; i < sales.length; i++) {
+            sumaX += sales[i];
+        }
+        System.out.println("Suma columa X: " + sumaX);
+    }
+
+    public void sumY() {
+        for (int i = 0; i < sales.length; i++) {
+            sumaY += advertising[i];
+        }
+        System.out.println("Suma columa Y: " + sumaY);
+    }
+
+    public void sumXY(){
+        for (int i = 0; i < sales.length; i++){
+            double resultado = sales[i] * advertising[i];
+
+            arreglo[i]=resultado; // double[] arreglo es donde guardaremos nuestros datos multiplicados x y
+
+        }
+        System.out.println("Columna XY: " + Arrays.toString(arreglo));
+
+        for (int i = 0; i < arreglo.length; i++){
+            sumaXY += arreglo[i];
+        }
+        System.out.println("Suma columna XY: " + sumaXY);
+    }
+
+    public void sumX2(){
+        for (int i = 0; i < sales.length; i++){
+            sumaX2 += sales[i] * sales [i];
+        }
+        System.out.println("Suma columna sales elevado a la 2: " + sumaX2);
+    }
+
+    public double beta0(){
+        beta0 = (beta0 * sumaXY - sumaX * sumaY) / (beta0 * sumaX2 - sumaX * sumaX); // con la formula de beta 0 obtenemos sus datos para poder sacar la pendiente, osea,beta 1
+
+        System.out.println("Beta 0 =" + beta1);
+
+        return beta1;
+
+    }
+    public double beta1(){
+
+        beta1 = (sumaY - beta0 * sumaX) / beta0;
+
+        System.out.println("beta 1 = "+ beta0);
+
+        return beta1;
+    }
+
+    public double prediccion(){
+
+        prediccion = (beta1 + beta0 * sumaX);
+
+        System.out.println("prediccion  =" + prediccion );
+
+        return prediccion;
+    }
+    public double prediccion1(){
+
+        prediccion = (beta1 + beta0 * 3);
+
+        System.out.println("prediccion1  =" + prediccion1 );
+
+        return prediccion1;
+    }
+    public double prediccion2(){
+
+        prediccion2 = (beta1 + beta0 * 6);
+
+        System.out.println("prediccion2  =" + prediccion2 );
+
+        return prediccion2;
+    }
+    public double prediccion3(){
+
+        prediccion3 = (beta1 + beta0 * 23);
+
+        System.out.println("prediccion3  =" + prediccion3 );
+
+        return prediccion3;
+    }
+    public double prediccion4(){
+
+        prediccion4 = (beta1 + beta0 * 66);
+
+        System.out.println("prediccion4  =" + prediccion4 );
+
+        return prediccion4;
+    }
+
+}
+
+
+
