@@ -1,0 +1,27 @@
+public class DiscretsMaths {
+
+    public static void main (String [] args){
+
+        double [] x = {1,2,3,4,5,6,7,8,9,10}; // sales
+        double [] y = {5,10,15,20,25,30,35,40,45,50}; // advertising
+
+        SimpleLinealRegression Maths = new SimpleLinealRegression(x,y); // maths es el objeto que hara llamar a otras las clases de nuestro SimpleLinealRegression
+        Maths.ShowData();
+
+        Maths.sumX();
+        Maths.sumY();
+        Maths.sumXY();
+        Maths.sumX2();
+        Maths.beta0();
+        Maths.beta1();
+        Maths.prediccion();
+        Maths.prediccion1();
+        Maths.prediccion2();
+        Maths.prediccion3();
+        Maths.prediccion4();
+
+
+
+    }
+
+    }
